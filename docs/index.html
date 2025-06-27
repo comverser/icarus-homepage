@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icarus</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <header>
+        <h1>Icarus</h1>
+        <nav>
+            <a hx-get="index.html" hx-target="#content" hx-select="#home" href="#">Home</a>
+            <a hx-get="index.html" hx-target="#content" hx-select="#about" href="#">About</a>
+            <a hx-get="index.html" hx-target="#content" hx-select="#contact" href="#">Contact</a>
+        </nav>
+    </header>
+    <main id="content">
+        <section id="home">
+            <h2>Welcome to Icarus</h2>
+            <p>Your solution for safe flights to the sun.</p>
+        </section>
+    </main>
+    <section id="about" class="hidden">
+        <h2>About Us</h2>
+        <p>Icarus is a fictional company specializing in solar flights.</p>
+    </section>
+    <section id="contact" class="hidden">
+        <h2>Contact Us</h2>
+        <p>Email us at <a href="mailto:info@icarus.com">info@icarus.com</a>.</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Icarus</p>
+    </footer>
+</body>
+</html>
