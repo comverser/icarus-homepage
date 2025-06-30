@@ -5,21 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICARUS - Innovation of Airship</title>
+
+    <!-- ========== EXTERNAL DEPENDENCIES ========== -->
+    <!-- HTMX for dynamic content loading and interactions -->
+    <script defer src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"
+        integrity="sha384-Akqfrbj/HpNVo8k11SXBb6TlBWmXXlYQrCSqEWmyKJe+hDm3Z/B2WVG4smwBkRVm"
+        crossorigin="anonymous"></script>
+    <!-- HTMX class-tools extension for CSS class manipulation -->
+    <script defer src="https://unpkg.com/htmx.org@1.9.12/dist/ext/class-tools.js"></script>
+
+    <!-- Tailwind CSS for utility-first styling -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- ========== TAILWIND CONFIGURATION ========== -->
     <script>
+        // Custom Tailwind configuration for animations and keyframes
         tailwind.config = {
             theme: {
                 extend: {
+                    // Custom animations for enhanced UX
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'modal-slide-in': 'modalSlideIn 0.3s ease',
-                        'shimmer': 'shimmer 2s infinite'
+                        'float': 'float 6s ease-in-out infinite',        // Floating airship animation
+                        'modal-slide-in': 'modalSlideIn 0.3s ease',     // Modal entrance animation
+                        'shimmer': 'shimmer 2s infinite'                // Loading shimmer effect
                     },
+                    // Keyframe definitions for custom animations
                     keyframes: {
+                        // Gentle floating motion for airship SVG
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-20px)' }
                         },
+                        // Smooth modal entrance with scale and slide
                         modalSlideIn: {
                             'from': {
                                 opacity: '0',
@@ -30,6 +47,7 @@
                                 transform: 'scale(1) translateY(0)'
                             }
                         },
+                        // Loading shimmer effect for placeholders
                         shimmer: {
                             '0%': { left: '-100%' },
                             '100%': { left: '100%' }
@@ -39,23 +57,28 @@
             }
         }
     </script>
+    
+    <!-- ========== CUSTOM STYLES ========== -->
     <style>
+        /* Global smooth scrolling behavior */
         html {
             scroll-behavior: smooth;
         }
 
+        /* Hamburger menu animation states */
         .hamburger-active-1 {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(5px, 5px);  /* Top line becomes part of X */
         }
 
         .hamburger-active-2 {
-            opacity: 0;
+            opacity: 0;  /* Middle line disappears */
         }
 
         .hamburger-active-3 {
-            transform: rotate(-45deg) translate(7px, -6px);
+            transform: rotate(-45deg) translate(7px, -6px);  /* Bottom line becomes part of X */
         }
 
+        /* Shimmer loading effect for image placeholders */
         .image-placeholder::before {
             content: "";
             position: absolute;
@@ -70,13 +93,16 @@
 </head>
 
 <body class="font-sans leading-relaxed text-gray-800 overflow-x-hidden">
-    <!-- Header -->
+    <!-- ========== HEADER NAVIGATION ========== -->
+    <!-- Fixed header with backdrop blur and responsive navigation -->
     <header
         class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-300"
         id="header">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex items-center justify-between py-4">
+                <!-- Logo section with branded icon and text -->
                 <a href="#" class="flex items-center gap-3 text-inherit no-underline">
+                    <!-- Custom airship icon -->
                     <div class="w-8 h-8 bg-blue-600 rounded-lg relative">
                         <div
                             class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-2 bg-white rounded-full">
@@ -85,6 +111,7 @@
                     <span class="text-xl font-bold text-gray-800">ICARUS</span>
                 </a>
 
+                <!-- Desktop navigation menu - hidden on mobile -->
                 <nav class="hidden md:flex gap-10">
                     <a href="#about"
                         class="text-gray-500 font-medium hover:text-gray-800 transition-colors duration-300">About</a>
@@ -96,8 +123,10 @@
                         class="text-gray-500 font-medium hover:text-gray-800 transition-colors duration-300">Contact</a>
                 </nav>
 
+                <!-- Mobile hamburger menu button - visible only on mobile -->
                 <button class="md:hidden flex flex-col gap-1 bg-transparent border-none cursor-pointer p-2"
                     id="mobileMenuBtn">
+                    <!-- Three lines that transform into X when active -->
                     <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300" id="hamburger1"></span>
                     <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300" id="hamburger2"></span>
                     <span class="w-6 h-0.5 bg-gray-800 transition-all duration-300" id="hamburger3"></span>
@@ -105,6 +134,7 @@
             </div>
         </div>
 
+        <!-- Mobile navigation menu - toggleable dropdown -->
         <nav class="hidden md:hidden flex-col gap-4 py-4 bg-white border-t border-gray-200" id="mobileNav">
             <div class="max-w-6xl mx-auto px-6">
                 <a href="#about" class="block text-gray-800 text-lg font-medium py-2 no-underline">About</a>
@@ -115,23 +145,31 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ========== HERO SECTION ========== -->
+    <!-- Main landing section with animated airship -->
     <section class="pt-32 pb-16 md:pt-32 md:pb-16 bg-white text-center">
         <div class="max-w-6xl mx-auto px-6">
+            <!-- Main headline with brand emphasis -->
             <h1 class="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight mb-8 tracking-tight">
                 Innovation<br>
                 <span class="text-blue-600">of Airship</span>
             </h1>
+            
+            <!-- Subtitle description -->
             <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
                 혁신적인 비행선 기술로 하늘을 나는 새로운 미래를 만들어갑니다
             </p>
+            
+            <!-- Call-to-action button -->
             <button
                 class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30">
                 Learn More
             </button>
 
+            <!-- Animated airship illustration -->
             <div class="mt-20 flex justify-center opacity-80">
                 <svg width="500" height="200" viewBox="0 0 500 200" class="max-w-full h-auto animate-float">
+                    <!-- SVG gradient definitions -->
                     <defs>
                         <linearGradient id="airshipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="rgba(255,255,255,0.95)" />
@@ -139,22 +177,29 @@
                             <stop offset="100%" stop-color="rgba(241,245,249,0.85)" />
                         </linearGradient>
                     </defs>
+                    <!-- Airship body -->
                     <ellipse cx="250" cy="100" rx="180" ry="50" fill="url(#airshipGradient)"
                         stroke="rgba(59,130,246,0.2)" stroke-width="1" />
+                    <!-- Gondola/cabin -->
                     <rect x="230" y="135" width="40" height="15" rx="8" fill="rgba(59,130,246,0.8)" />
+                    <!-- Tail fin -->
                     <polygon points="430,100 460,90 460,110" fill="rgba(59,130,246,0.8)" />
+                    <!-- Brand name on airship -->
                     <text x="250" y="105" text-anchor="middle" fill="rgba(59,130,246,0.9)" font-size="20"
                         font-weight="600">ICARUS</text>
+                    <!-- Highlight reflection -->
                     <ellipse cx="200" cy="85" rx="30" ry="10" fill="rgba(255,255,255,0.8)" opacity="0.8" />
                 </svg>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ========== ABOUT SECTION ========== -->
+    <!-- Company introduction with two-column layout -->
     <section id="about" class="py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <!-- Text content -->
                 <div>
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">About</h2>
                     <div class="flex flex-col gap-6">
@@ -164,9 +209,11 @@
                             만들어갑니다.</p>
                     </div>
                 </div>
+                <!-- Visual illustration -->
                 <div>
                     <div
                         class="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl flex items-center justify-center p-12 max-w-md mx-auto relative overflow-hidden">
+                        <!-- Simplified airship graphic -->
                         <svg width="300" height="180" viewBox="0 0 300 180" class="opacity-60 max-w-full h-auto">
                             <ellipse cx="150" cy="90" rx="100" ry="35" fill="rgba(59,130,246,0.1)" />
                             <polygon points="250,90 270,82 270,98" fill="rgba(59,130,246,0.4)" />
@@ -179,10 +226,12 @@
         </div>
     </section>
 
-    <!-- Product Section -->
+    <!-- ========== PRODUCT SECTION ========== -->
+    <!-- Product showcase with reversed layout -->
     <section id="product" class="py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+                <!-- Text content (order-2 on desktop for right alignment) -->
                 <div class="md:order-2">
                     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">Product</h2>
                     <div class="flex flex-col gap-6">
@@ -192,9 +241,11 @@
                             운송을 실현합니다.</p>
                     </div>
                 </div>
+                <!-- Visual illustration (order-1 on desktop for left alignment) -->
                 <div class="md:order-1">
                     <div
                         class="aspect-square bg-gradient-to-br from-green-100 to-green-200 rounded-3xl flex items-center justify-center p-12 max-w-md mx-auto relative overflow-hidden">
+                        <!-- Green-themed airship for product differentiation -->
                         <svg width="300" height="180" viewBox="0 0 300 180" class="opacity-60 max-w-full h-auto">
                             <ellipse cx="150" cy="90" rx="100" ry="35" fill="rgba(34,197,94,0.1)" />
                             <rect x="135" y="115" width="30" height="12" rx="6" fill="rgba(34,197,94,0.4)" />
@@ -208,19 +259,24 @@
         </div>
     </section>
 
-    <!-- News Section -->
+    <!-- ========== NEWS SECTION ========== -->
+    <!-- Latest news and updates in card layout -->
     <section id="news" class="py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-20 tracking-tight">News</h2>
 
+            <!-- News cards grid - responsive from 1 to 3 columns -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Card 1: Technology Update -->
                 <div
                     class="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-xl">
+                    <!-- Card image placeholder with category badge -->
                     <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 relative">
                         <div
                             class="absolute top-4 left-4 bg-white/90 text-gray-800 px-3 py-2 rounded-full text-xs font-medium">
                             NEWS</div>
                     </div>
+                    <!-- Card content -->
                     <div class="p-8">
                         <div class="text-blue-600 text-sm font-medium mb-4">2024.03.15</div>
                         <h3 class="text-xl font-semibold mb-4 leading-snug">차세대 비행선 기술 공개</h3>
@@ -228,6 +284,7 @@
                     </div>
                 </div>
 
+                <!-- News Card 2: Partnership Expansion -->
                 <div
                     class="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-xl">
                     <div class="aspect-video bg-gradient-to-br from-green-100 to-green-200 relative">
@@ -242,6 +299,7 @@
                     </div>
                 </div>
 
+                <!-- News Card 3: Environmental Certification -->
                 <div
                     class="bg-white rounded-2xl shadow-sm overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:shadow-xl">
                     <div class="aspect-video bg-gradient-to-br from-purple-100 to-purple-200 relative">
@@ -260,7 +318,8 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ========== CONTACT SECTION ========== -->
+    <!-- Contact call-to-action with modal trigger -->
     <section id="contact" class="py-32 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center max-w-4xl mx-auto">
@@ -268,6 +327,7 @@
                 <p class="text-xl text-gray-500 leading-relaxed mb-12">
                     이카루스의 혁신적인 비행선 서비스에 대해 문의하시거나 더 자세한 정보가 필요하시면 연락해 주세요.
                 </p>
+                <!-- Button to open contact modal -->
                 <button
                     class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30"
                     id="contactBtn">문의하기</button>
@@ -275,11 +335,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========== FOOTER ========== -->
+    <!-- Company information and social links -->
     <footer class="bg-gray-900 text-white py-16">
         <div class="max-w-6xl mx-auto px-6">
             <div class="mb-12">
                 <div class="mb-12">
+                    <!-- Footer logo and brand -->
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-8 h-8 bg-blue-600 rounded-lg relative">
                             <div
@@ -288,25 +350,31 @@
                         </div>
                         <span class="text-xl font-bold text-white">ICARUS</span>
                     </div>
+                    <!-- Company information -->
                     <div class="text-gray-300">
                         <p class="mb-3 text-lg"><strong>이카루스항공(주)</strong> | 김이카루스 | 박개인정보 | 123-45-67890</p>
                         <p class="mb-4 text-lg">서울특별시 강남구 테헤란로 123, 이카루스타워 15층</p>
+                        <!-- Contact info and social links -->
                         <div class="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
                             <span>contact@icarus.com</span>
                             <div class="flex gap-4">
+                                <!-- Social media icons -->
                                 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                    <!-- Facebook icon -->
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path
                                             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                                     </svg>
                                 </a>
                                 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                    <!-- Twitter icon -->
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path
                                             d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                                     </svg>
                                 </a>
                                 <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                                    <!-- LinkedIn icon -->
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path
                                             d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -318,6 +386,7 @@
                 </div>
             </div>
 
+            <!-- Footer bottom with copyright and legal links -->
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700 gap-4">
                 <div class="text-gray-400 text-sm">
                     <span>&copy; 2024 ICARUS. All rights reserved.</span>
@@ -331,41 +400,51 @@
         </div>
     </footer>
 
-    <!-- Contact Modal -->
+    <!-- ========== CONTACT MODAL ========== -->
+    <!-- Hidden modal for contact form - shown via JavaScript -->
     <div class="hidden fixed inset-0 bg-black/50 z-50 items-center justify-center p-4" id="contactModal">
+        <!-- Modal container with backdrop blur -->
         <div class="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto animate-modal-slide-in">
+            <!-- Modal header with close button -->
             <div class="flex justify-between items-center p-6 pb-0 mb-6">
                 <h3 class="text-2xl font-bold">문의하기</h3>
                 <button
                     class="bg-transparent border-none cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-colors duration-300"
                     id="modalClose">
+                    <!-- Close icon (X) -->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
             </div>
+            <!-- Contact form -->
             <form class="px-6 pb-6" id="contactForm">
+                <!-- Name field -->
                 <div class="mb-6">
                     <label for="name" class="block mb-2 font-medium text-gray-700">이름</label>
                     <input type="text" id="name" name="name" placeholder="홍길동" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10">
                 </div>
+                <!-- Email field -->
                 <div class="mb-6">
                     <label for="email" class="block mb-2 font-medium text-gray-700">이메일</label>
                     <input type="email" id="email" name="email" placeholder="example@email.com" required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10">
                 </div>
+                <!-- Phone field (optional) -->
                 <div class="mb-6">
                     <label for="phone" class="block mb-2 font-medium text-gray-700">전화번호</label>
                     <input type="tel" id="phone" name="phone" placeholder="010-1234-5678"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10">
                 </div>
+                <!-- Message field -->
                 <div class="mb-6">
                     <label for="message" class="block mb-2 font-medium text-gray-700">문의 내용</label>
                     <textarea id="message" name="message" rows="4" placeholder="문의하실 내용을 적어주세요..." required
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg text-base transition-all duration-300 focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10 resize-y min-h-24"></textarea>
                 </div>
+                <!-- Submit button -->
                 <button type="submit"
                     class="w-full bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30 flex items-center justify-center">
                     문의 보내기
@@ -374,41 +453,51 @@
         </div>
     </div>
 
+    <!-- ========== JAVASCRIPT ========== -->
     <script>
-        // Wait for DOM to be fully loaded
+        // ========== DOM CONTENT LOADED EVENT ==========
+        // Wait for DOM to be fully loaded before initializing functionality
         document.addEventListener('DOMContentLoaded', function () {
-            // Mobile menu functionality
+            
+            // ========== MOBILE MENU FUNCTIONALITY ==========
+            // Get mobile menu elements
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileNav = document.getElementById('mobileNav');
             const hamburger1 = document.getElementById('hamburger1');
             const hamburger2 = document.getElementById('hamburger2');
             const hamburger3 = document.getElementById('hamburger3');
 
+            // Toggle mobile menu when hamburger button is clicked
             if (mobileMenuBtn && mobileNav) {
                 mobileMenuBtn.addEventListener('click', function () {
                     const isActive = mobileNav.classList.contains('flex');
 
                     if (isActive) {
+                        // Close mobile menu
                         mobileNav.classList.remove('flex');
                         mobileNav.classList.add('hidden');
+                        // Reset hamburger lines to normal state
                         hamburger1.classList.remove('hamburger-active-1');
                         hamburger2.classList.remove('hamburger-active-2');
                         hamburger3.classList.remove('hamburger-active-3');
                     } else {
+                        // Open mobile menu
                         mobileNav.classList.remove('hidden');
                         mobileNav.classList.add('flex');
+                        // Transform hamburger lines to X shape
                         hamburger1.classList.add('hamburger-active-1');
                         hamburger2.classList.add('hamburger-active-2');
                         hamburger3.classList.add('hamburger-active-3');
                     }
                 });
 
-                // Close mobile menu when clicking on links
+                // Close mobile menu when navigation links are clicked
                 const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
                 mobileNavLinks.forEach(function (link) {
                     link.addEventListener('click', function () {
                         mobileNav.classList.remove('flex');
                         mobileNav.classList.add('hidden');
+                        // Reset hamburger animation
                         hamburger1.classList.remove('hamburger-active-1');
                         hamburger2.classList.remove('hamburger-active-2');
                         hamburger3.classList.remove('hamburger-active-3');
@@ -416,32 +505,37 @@
                 });
             }
 
-            // Contact modal functionality
+            // ========== CONTACT MODAL FUNCTIONALITY ==========
+            // Get modal elements
             const contactBtn = document.getElementById('contactBtn');
             const contactModal = document.getElementById('contactModal');
             const modalClose = document.getElementById('modalClose');
             const contactForm = document.getElementById('contactForm');
 
+            // Function to close modal and restore page scroll
             function closeModal() {
                 if (contactModal) {
                     contactModal.classList.remove('flex');
                     contactModal.classList.add('hidden');
-                    document.body.style.overflow = '';
+                    document.body.style.overflow = ''; // Restore scroll
                 }
             }
 
+            // Open modal when contact button is clicked
             if (contactBtn && contactModal) {
                 contactBtn.addEventListener('click', function () {
                     contactModal.classList.remove('hidden');
                     contactModal.classList.add('flex');
-                    document.body.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden'; // Prevent background scroll
                 });
             }
 
+            // Close modal when close button is clicked
             if (modalClose) {
                 modalClose.addEventListener('click', closeModal);
             }
 
+            // Close modal when clicking on backdrop (outside modal content)
             if (contactModal) {
                 contactModal.addEventListener('click', function (e) {
                     if (e.target === contactModal) {
@@ -450,25 +544,30 @@
                 });
             }
 
-            // Contact form submission
+            // ========== CONTACT FORM SUBMISSION ==========
+            // Handle form submission
             if (contactForm) {
                 contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevent default form submission
+                    // Show success message (replace with actual form handling)
                     alert('문의가 성공적으로 전송되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-                    contactForm.reset();
-                    closeModal();
+                    contactForm.reset(); // Clear form fields
+                    closeModal(); // Close modal after submission
                 });
             }
 
-            // Smooth scrolling for navigation links
+            // ========== SMOOTH SCROLLING NAVIGATION ==========
+            // Add smooth scrolling behavior to all anchor links
             document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
+                    e.preventDefault(); // Prevent default anchor behavior
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
+                        // Calculate scroll position accounting for fixed header
                         const header = document.querySelector('header');
                         const headerHeight = header ? header.offsetHeight : 0;
                         const targetPosition = target.offsetTop - headerHeight;
+                        // Smooth scroll to target position
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -477,7 +576,8 @@
                 });
             });
 
-            // Header scroll effect
+            // ========== HEADER SCROLL EFFECT ==========
+            // Hide/show header based on scroll direction
             let lastScrollTop = 0;
             const header = document.getElementById('header');
 
@@ -485,18 +585,20 @@
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
                 if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // Scrolling down
+                    // Scrolling down - hide header
                     header.style.transform = 'translateY(-100%)';
                 } else {
-                    // Scrolling up
+                    // Scrolling up - show header
                     header.style.transform = 'translateY(0)';
                 }
 
                 lastScrollTop = scrollTop;
             });
 
-            // Keyboard navigation
+            // ========== KEYBOARD NAVIGATION ==========
+            // Handle keyboard events for accessibility
             document.addEventListener('keydown', function (e) {
+                // Close modal with Escape key
                 if (contactModal && contactModal.classList.contains('flex')) {
                     if (e.key === 'Escape') {
                         closeModal();
@@ -504,17 +606,20 @@
                 }
             });
 
-            // Add loading animation to airship
+            // ========== AIRSHIP ANIMATION ENHANCEMENT ==========
+            // Add entrance animation to hero airship
             const airshipSvg = document.querySelector('.animate-float');
             if (airshipSvg) {
+                // Start with hidden state
                 airshipSvg.style.opacity = '0';
                 airshipSvg.style.transform = 'translateY(50px)';
 
+                // Animate entrance after page load
                 setTimeout(() => {
                     airshipSvg.style.transition = 'opacity 1s ease, transform 1s ease';
                     airshipSvg.style.opacity = '0.8';
                     airshipSvg.style.transform = 'translateY(0)';
-                }, 500);
+                }, 500); // 500ms delay for dramatic effect
             }
         });
     </script>
