@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icarus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <header class="bg-gray-900 text-white">
+        <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+            <h1 class="text-2xl font-semibold">Icarus</h1>
+            <nav class="space-x-4">
+                <a href="#" hx-get="index.html" hx-target="#content" hx-select="#home" class="hover:underline">Home</a>
+                <a href="#" hx-get="index.html" hx-target="#content" hx-select="#features" class="hover:underline">Features</a>
+                <a href="#" hx-get="index.html" hx-target="#content" hx-select="#about" class="hover:underline">About</a>
+                <a href="#" hx-get="index.html" hx-target="#content" hx-select="#contact" class="hover:underline">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main id="content" class="max-w-5xl mx-auto p-4 space-y-16">
+        <section id="home" class="text-center py-20">
+            <h2 class="text-4xl font-bold mb-4">Reach New Heights with Icarus</h2>
+            <p class="mb-8">Innovative solar flight technology to get you closer to the sun.</p>
+            <a href="#" hx-get="index.html" hx-target="#content" hx-select="#features" class="inline-block bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700">Learn More</a>
+        </section>
+    </main>
+
+    <section id="features" class="hidden max-w-5xl mx-auto p-4 space-y-8">
+        <h2 class="text-3xl font-bold text-center mb-6">Features</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold mb-2">Lightweight Design</h3>
+                <p>Cutting-edge materials keep our crafts efficient and safe.</p>
+            </div>
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold mb-2">Renewable Energy</h3>
+                <p>Solar-powered systems provide sustainable propulsion.</p>
+            </div>
+            <div class="p-4 bg-white rounded shadow">
+                <h3 class="font-semibold mb-2">Expert Piloting</h3>
+                <p>Seasoned pilots with experience in high-altitude flight.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="hidden max-w-5xl mx-auto p-4 space-y-4">
+        <h2 class="text-3xl font-bold">About Icarus</h2>
+        <p>Icarus is a fictional company exploring the possibilities of flight close to the sun. We blend cutting-edge technology with innovative designs to deliver a unique solar flight experience.</p>
+    </section>
+
+    <section id="contact" class="hidden max-w-5xl mx-auto p-4 space-y-4">
+        <h2 class="text-3xl font-bold">Contact Us</h2>
+        <p>We would love to hear from you. Reach out via <a href="mailto:info@icarus.com" class="text-blue-600 hover:underline">info@icarus.com</a>.</p>
+    </section>
+
+    <footer class="bg-gray-100 text-center p-4 mt-16">
+        <p>&copy; 2025 Icarus</p>
+    </footer>
+</body>
+</html>
