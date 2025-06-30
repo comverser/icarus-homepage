@@ -3,8 +3,7 @@
 This repository contains a very small static website for the fictional company **Icarus**. The site files live in the repository root so they can be served with GitHub Pages.
 
 ## Structure
-- `index.html` – single-page site powered by [HTMX](https://htmx.org/)
-- `style.css` – minimal styling for the page
+- `index.html` – single-page site powered by [HTMX](https://htmx.org/) and styled with [Tailwind CSS](https://tailwindcss.com/) loaded from a CDN\
 
 ## Running locally
 Open `index.html` in your browser.
