@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icarus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body class="font-sans leading-relaxed">
+    <header class="bg-gray-800 text-white p-4">
+        <h1 class="text-xl">Icarus</h1>
+        <nav>
+            <a class="mr-4 no-underline text-white hover:underline" hx-get="index.html" hx-target="#content" hx-select="#home" href="#">Home</a>
+            <a class="mr-4 no-underline text-white hover:underline" hx-get="index.html" hx-target="#content" hx-select="#about" href="#">About</a>
+            <a class="no-underline text-white hover:underline" hx-get="index.html" hx-target="#content" hx-select="#contact" href="#">Contact</a>
+        </nav>
+    </header>
+    <main id="content" class="p-4">
+        <section id="home">
+            <h2 class="text-lg font-semibold">Welcome to Icarus</h2>
+            <p>Your solution for safe flights to the sun.</p>
+        </section>
+    </main>
+    <section id="about" class="hidden p-4">
+        <h2 class="text-lg font-semibold">About Us</h2>
+        <p>Icarus is a fictional company specializing in solar flights.</p>
+    </section>
+    <section id="contact" class="hidden p-4">
+        <h2 class="text-lg font-semibold">Contact Us</h2>
+        <p>Email us at <a class="text-blue-500" href="mailto:info@icarus.com">info@icarus.com</a>.</p>
+    </section>
+    <footer class="bg-gray-100 text-center p-4">
+        <p>&copy; 2023 Icarus</p>
+    </footer>
+</body>
+</html>
