@@ -1,6 +1,7 @@
 // Custom Tailwind configuration for animations and keyframes
-/* exported tailwind */
-tailwind.config = {
+/* global window */
+window.tailwind = window.tailwind || {};
+window.tailwind.config = {
     theme: {
         extend: {
             // Custom animations for enhanced UX
