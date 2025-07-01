@@ -16,80 +16,10 @@
 
     <!-- Tailwind CSS for utility-first styling -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
     
-    <!-- ========== TAILWIND CONFIGURATION ========== -->
-    <script>
-        // Custom Tailwind configuration for animations and keyframes
-        tailwind.config = {
-            theme: {
-                extend: {
-                    // Custom animations for enhanced UX
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',        // Floating airship animation
-                        'modal-slide-in': 'modalSlideIn 0.3s ease',     // Modal entrance animation
-                        'shimmer': 'shimmer 2s infinite'                // Loading shimmer effect
-                    },
-                    // Keyframe definitions for custom animations
-                    keyframes: {
-                        // Gentle floating motion for airship SVG
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        // Smooth modal entrance with scale and slide
-                        modalSlideIn: {
-                            'from': {
-                                opacity: '0',
-                                transform: 'scale(0.9) translateY(-20px)'
-                            },
-                            'to': {
-                                opacity: '1',
-                                transform: 'scale(1) translateY(0)'
-                            }
-                        },
-                        // Loading shimmer effect for placeholders
-                        shimmer: {
-                            '0%': { left: '-100%' },
-                            '100%': { left: '100%' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     
-    <!-- ========== CUSTOM STYLES ========== -->
-    <style>
-        /* Global smooth scrolling behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Hamburger menu animation states */
-        .hamburger-active-1 {
-            transform: rotate(45deg) translate(5px, 5px);  /* Top line becomes part of X */
-        }
-
-        .hamburger-active-2 {
-            opacity: 0;  /* Middle line disappears */
-        }
-
-        .hamburger-active-3 {
-            transform: rotate(-45deg) translate(7px, -6px);  /* Bottom line becomes part of X */
-        }
-
-        /* Shimmer loading effect for image placeholders */
-        .image-placeholder::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 2s infinite;
-        }
-    </style>
 </head>
 
 <body class="font-sans leading-relaxed text-gray-800 overflow-x-hidden">
