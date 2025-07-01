@@ -1,0 +1,46 @@
+<section id="hero" class="pt-32 pb-16 md:pt-32 md:pb-16 bg-white text-center">
+    <div class="max-w-6xl mx-auto px-6">
+        <!-- Main headline with brand emphasis -->
+        <h1 class="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight mb-8 tracking-tight">
+            Innovation<br>
+            <span class="text-blue-600">of Airship</span>
+        </h1>
+
+        <!-- Subtitle description -->
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-12 leading-relaxed">
+            혁신적인 비행선 기술로 하늘을 나는 새로운 미래를 만들어갑니다
+        </p>
+
+        <!-- Call-to-action button -->
+        <button
+            class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30">
+            Learn More
+        </button>
+
+        <!-- Animated airship illustration -->
+        <div class="mt-20 flex justify-center opacity-80">
+            <svg width="500" height="200" viewBox="0 0 500 200" class="max-w-full h-auto animate-[bounce_6s_ease-in-out_infinite]">
+                <!-- SVG gradient definitions -->
+                <defs>
+                    <linearGradient id="airshipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(255,255,255,0.95)" />
+                        <stop offset="50%" stop-color="rgba(248,250,252,0.9)" />
+                        <stop offset="100%" stop-color="rgba(241,245,249,0.85)" />
+                    </linearGradient>
+                </defs>
+                <!-- Airship body -->
+                <ellipse cx="250" cy="100" rx="180" ry="50" fill="url(#airshipGradient)"
+                    stroke="rgba(59,130,246,0.2)" stroke-width="1" />
+                <!-- Gondola/cabin -->
+                <rect x="230" y="135" width="40" height="15" rx="8" fill="rgba(59,130,246,0.8)" />
+                <!-- Tail fin -->
+                <polygon points="430,100 460,90 460,110" fill="rgba(59,130,246,0.8)" />
+                <!-- Brand name on airship -->
+                <text x="250" y="105" text-anchor="middle" fill="rgba(59,130,246,0.9)" font-size="20"
+                    font-weight="600">ICARUS</text>
+                <!-- Highlight reflection -->
+                <ellipse cx="200" cy="85" rx="30" ry="10" fill="rgba(255,255,255,0.8)" opacity="0.8" />
+            </svg>
+        </div>
+    </div>
+</section>

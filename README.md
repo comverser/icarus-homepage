@@ -4,9 +4,9 @@ This repository contains a small static website for the fictional company **Icar
 
 ## Structure
 - `index.html` – main page that pulls in fragments with HTMX.
-- `partials/header.html` and `partials/footer.html` – common layout elements.
-- `partials/sections.html` – hero, product, news and contact sections.
-- `partials/modals.html` – modal dialogs triggered from the page.
+- `partials/layout/` – header and footer used across the site.
+- `partials/sections/` – individual hero, about, product, news and contact section files.
+- `partials/modals/` – modal dialogs used on the page.
 
 ## Running locally
 Open `index.html` in any modern browser and the partials will load automatically.
