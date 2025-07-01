@@ -1,11 +1,15 @@
 # Icarus Homepage
 
-This repository hosts a small static website for the fictional company **Icarus**. HTML fragments now live in a `partials/` folder for clarity while the site continues to be fully static for GitHub Pages.
+This repository contains a small static website for the fictional company **Icarus**. It relies on [HTMX](https://htmx.org/) to load page fragments on demand and [Tailwind CSS](https://tailwindcss.com/) from a CDN. There is no build step or tooling required.
 
 ## Structure
-- `index.html` – single page built with [HTMX](https://htmx.org/) and styled with [Tailwind CSS](https://tailwindcss.com/) from a CDN. Common sections reside in `partials/sections.html`, and modal fragments are consolidated in `partials/modals.html` for dynamic loading via HTMX.
+- `index.html` – main page that pulls in fragments with HTMX.
+- `partials/header.html` and `partials/footer.html` – common layout elements.
+- `partials/sections.html` – hero, product, news and contact sections.
+- `partials/modals.html` – modal dialogs triggered from the page.
 
 ## Running locally
-Open `index.html` in your browser.
+Open `index.html` in any modern browser and the partials will load automatically.
 
-To publish on GitHub Pages, enable Pages in the repository settings and choose the root of the `main` branch as the source.
+## Deployment
+To publish with GitHub Pages, enable Pages in the repository settings and choose the root of the `main` branch as the source.
