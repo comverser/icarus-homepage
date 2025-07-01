@@ -5,10 +5,17 @@
             <p class="text-xl text-gray-500 leading-relaxed mb-12">
                 이카루스의 혁신적인 비행선 서비스에 대해 문의하시거나 더 자세한 정보가 필요하시면 연락해 주세요.
             </p>
-            <!-- Button to open contact modal -->
-            <button
-                class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium cursor-pointer transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30"
-                hx-get="partials/modals/contact.html" hx-select="#contactModal" hx-target="#modalContainer" hx-swap="innerHTML">문의하기</button>
+            <!-- Direct contact links -->
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="mailto:contact@icarus.com"
+                    class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30">
+                    contact@icarus.com
+                </a>
+                <a href="tel:010-1234-5678"
+                    class="bg-blue-600 text-white border-none px-8 py-4 rounded-full text-lg font-medium transition-all duration-300 hover:bg-blue-700 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-600/30">
+                    010-1234-5678
+                </a>
+            </div>
         </div>
     </div>
 </section>
