@@ -18,13 +18,13 @@
 </head>
 
 <body class="font-sans leading-relaxed text-gray-800 overflow-x-hidden">
-    <header hx-get="partials/header.html" hx-trigger="load" hx-swap="outerHTML"></header>
-    <div hx-get="partials/sections.html" hx-trigger="load" hx-select="#hero" hx-swap="outerHTML"></div>
-    <div hx-get="partials/sections.html" hx-trigger="load" hx-select="#about" hx-swap="outerHTML"></div>
-    <div hx-get="partials/sections.html" hx-trigger="load" hx-select="#product" hx-swap="outerHTML"></div>
-    <div hx-get="partials/sections.html" hx-trigger="load" hx-select="#news" hx-swap="outerHTML"></div>
-    <div hx-get="partials/sections.html" hx-trigger="load" hx-select="#contact" hx-swap="outerHTML"></div>
-    <footer hx-get="partials/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
+    <header hx-get="partials/layout/header.html" hx-trigger="load" hx-swap="outerHTML"></header>
+    <div hx-get="partials/sections/hero.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="partials/sections/about.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="partials/sections/product.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="partials/sections/news.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="partials/sections/contact.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <footer hx-get="partials/layout/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
 
     <!-- Container for modals loaded via HTMX -->
     <div id="modalContainer"></div>
