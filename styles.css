@@ -3,19 +3,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Hamburger menu animation states */
-.hamburger-active-1 {
-    transform: rotate(45deg) translate(5px, 5px);  /* Top line becomes part of X */
-}
-
-.hamburger-active-2 {
-    opacity: 0;  /* Middle line disappears */
-}
-
-.hamburger-active-3 {
-    transform: rotate(-45deg) translate(7px, -6px);  /* Bottom line becomes part of X */
-}
-
 /* Shimmer loading effect for image placeholders */
 .image-placeholder::before {
     content: "";
