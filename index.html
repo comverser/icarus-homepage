@@ -24,11 +24,11 @@
 
 <body class="font-sans leading-relaxed text-gray-800 overflow-x-hidden">
     <header hx-get="header.html" hx-trigger="load" hx-swap="outerHTML"></header>
-    <div hx-get="hero.html" hx-trigger="load" hx-swap="outerHTML"></div>
-    <div hx-get="about.html" hx-trigger="load" hx-swap="outerHTML"></div>
-    <div hx-get="product.html" hx-trigger="load" hx-swap="outerHTML"></div>
-    <div hx-get="news.html" hx-trigger="load" hx-swap="outerHTML"></div>
-    <div hx-get="contact.html" hx-trigger="load" hx-swap="outerHTML"></div>
+    <div hx-get="sections.html" hx-trigger="load" hx-select="#hero" hx-swap="outerHTML"></div>
+    <div hx-get="sections.html" hx-trigger="load" hx-select="#about" hx-swap="outerHTML"></div>
+    <div hx-get="sections.html" hx-trigger="load" hx-select="#product" hx-swap="outerHTML"></div>
+    <div hx-get="sections.html" hx-trigger="load" hx-select="#news" hx-swap="outerHTML"></div>
+    <div hx-get="sections.html" hx-trigger="load" hx-select="#contact" hx-swap="outerHTML"></div>
     <footer hx-get="footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
 
     <!-- Container for modals loaded via HTMX -->
