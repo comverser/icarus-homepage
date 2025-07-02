@@ -2,9 +2,23 @@
 <html lang="ko" class="scroll-smooth">
 
 <head>
+    <!-- ========== GOOGLE ANALYTICS ========== -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZV9V0GQN4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FZV9V0GQN4');
+    </script>
+    <!-- End Google Analytics tracking code -->
+    <!-- This tracks page views, user interactions, and conversion metrics -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Icarus develops stratospheric airship technology to deliver high-speed, low latency communications worldwide.">
+    <meta name="description"
+        content="Icarus develops stratospheric airship technology to deliver high-speed, low latency communications worldwide.">
     <meta name="keywords" content="Icarus, airship, NTN, stratosphere, communication, startup">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://icarus-airship.com/">
@@ -36,8 +50,6 @@
     <div hx-get="partials/sections/news.html" hx-trigger="load" hx-swap="outerHTML"></div>
     <div hx-get="partials/sections/contact.html" hx-trigger="load" hx-swap="outerHTML"></div>
     <footer hx-get="partials/layout/footer.html" hx-trigger="load" hx-swap="outerHTML"></footer>
-
-
 
     <!-- All interactions are handled with HTMX attributes; no custom scripts are needed -->
 </body>
