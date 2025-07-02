@@ -16,31 +16,51 @@
             Our Story
         </a>
 
-        <!-- Animated airship illustration -->
-        <div class="mt-20 flex justify-center opacity-80">
-            <svg width="500" height="200" viewBox="0 0 500 200"
-                class="max-w-full h-auto animate-[bounce_6s_ease-in-out_infinite]">
-                <!-- SVG gradient definitions -->
-                <defs>
-                    <linearGradient id="airshipGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="rgba(255,255,255,0.95)" />
-                        <stop offset="50%" stop-color="rgba(248,250,252,0.9)" />
-                        <stop offset="100%" stop-color="rgba(241,245,249,0.85)" />
-                    </linearGradient>
-                </defs>
-                <!-- Airship body -->
-                <ellipse cx="250" cy="100" rx="180" ry="50" fill="url(#airshipGradient)" stroke="rgba(59,130,246,0.2)"
-                    stroke-width="1" />
-                <!-- Gondola/cabin -->
-                <rect x="230" y="135" width="40" height="15" rx="8" fill="rgba(59,130,246,0.8)" />
-                <!-- Tail fin -->
-                <polygon points="430,100 460,90 460,110" fill="rgba(59,130,246,0.8)" />
-                <!-- Brand name on airship -->
-                <text x="250" y="105" text-anchor="middle" fill="rgba(59,130,246,0.9)" font-size="20"
-                    font-weight="600">ICARUS</text>
-                <!-- Highlight reflection -->
-                <ellipse cx="200" cy="85" rx="30" ry="10" fill="rgba(255,255,255,0.8)" opacity="0.8" />
-            </svg>
+        <!-- Airship 3D illustration -->
+        <div class="mt-8 flex justify-center opacity-80">
+            <div class="max-w-lg mx-auto animate-[float_6s_ease-in-out_infinite]">
+                <img src="/static/airship_3d.png" alt="ICARUS 3D Airship" class="w-full h-auto object-contain">
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    @keyframes float {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        12.5% {
+            transform: translateY(-2px) rotate(0.2deg);
+        }
+
+        25% {
+            transform: translateY(-4px) rotate(0.3deg);
+        }
+
+        37.5% {
+            transform: translateY(-5px) rotate(0.1deg);
+        }
+
+        50% {
+            transform: translateY(-6px) rotate(0deg);
+        }
+
+        62.5% {
+            transform: translateY(-5px) rotate(-0.1deg);
+        }
+
+        75% {
+            transform: translateY(-4px) rotate(-0.3deg);
+        }
+
+        87.5% {
+            transform: translateY(-2px) rotate(-0.2deg);
+        }
+
+        100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+    }
+</style>
